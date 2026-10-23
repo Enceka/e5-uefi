@@ -1,0 +1,40 @@
+#
+# E5 (Unisoc UMS9621) boot image parameters.
+#
+# A declarative record of the layout constants the port depends on, in the same
+# shape as the other E5-era Silicium ports.  The build itself takes these numbers
+# from env.sh (E5_FD_BASE / E5_FD_SIZE / E5_FD_BLOCKS) and from
+# Resources/Scripts/mk-boot-payload.py; this file is documentation and is not
+# parsed by build_e5.sh, so keep the two in sync by hand if you change one.
+#
+
+#
+# Boot Shim
+#
+[boot_shim]
+# LK jumps to offset 0x1000 of the boot partition with x0 = vendor FDT, so the
+# shim has to carry an AArch64 Image header (ARMd magic, text_offset 0x80000).
+requires_kernel_header = true
+# The shim copies the firmware volume forwards in 16-byte steps, so the FD base
+# must not overlap the shim itself at 0x80080000..0x80480000.
+load_address = 0x80080000
+
+#
+# UEFI FD
+#
+[uefi_fd]
+base  = 0x80800000
+size  = 0x400000
+blocks = 0x400
+
+#
+# Android boot image
+#
+# LK reads an Android boot image at offset 0 of the partition and jumps to
+# offset 0x1000, which is where the shim starts.  The payload is therefore a
+# boot image whose kernel is the shim and whose ramdisk is empty.
+[boot_image]
+header_version     = 4
+page_size          = 4096
+kernel_compression = "none"
+append_dtb         = false

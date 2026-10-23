@@ -1,0 +1,37 @@
+# EDK2 build output
+Build/
+Conf/
+build/
+
+# Compiler and linker output
+*.o
+*.obj
+*.a
+*.so
+*.elf
+*.map
+*.dll
+*.pdb
+
+# Firmware images produced by build_e5.sh
+BootShim.bin
+*.fd
+*.fv
+*.bin
+e5-uefi.bin
+bootpayload.bin
+
+# Local dependency trees and unpacked RPMs (see Building.md)
+.deps/
+local/
+
+# Python
+__pycache__/
+*.pyc
+
+# Editors and OS
+.vscode/
+.idea/
+*~
+.DS_Store
+*:Zone.Identifier

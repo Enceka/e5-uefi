@@ -1,11 +1,10 @@
 #
 # E5 (Unisoc UMS9621) boot image parameters.
 #
-# A declarative record of the layout constants the port depends on, in the same
-# shape as the other E5-era Silicium ports.  The build itself takes these numbers
-# from env.sh (E5_FD_BASE / E5_FD_SIZE / E5_FD_BLOCKS) and from
-# Resources/Scripts/mk-boot-payload.py; this file is documentation and is not
-# parsed by build_e5.sh, so keep the two in sync by hand if you change one.
+# A declarative record of the layout constants this port depends on, in the same
+# shape as the other E5-era Silicium ports.  It is documentation: build_e5.sh
+# takes these numbers from env.sh (E5_FD_BASE / E5_FD_SIZE / E5_FD_BLOCKS) and
+# Resources/Scripts/mk-boot-payload.py, so change both places together.
 #
 
 #
@@ -23,8 +22,8 @@ load_address = 0x80080000
 # UEFI FD
 #
 [uefi_fd]
-base  = 0x80800000
-size  = 0x400000
+base   = 0x80800000
+size   = 0x400000
 blocks = 0x400
 
 #

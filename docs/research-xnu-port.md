@@ -1,5 +1,8 @@
 # 把 XNU 移植到荣悦 E5（UMS9621）——可行性研究
 
+> **注**：文中引用的 `dumps/*.dtb`、`dumps/*.dts`、`dumps/uboot_log.bin` 等是实机
+> 抓取产物，属于 bring-up 工作区，**不在本仓库**。
+
 本文是 `docs/research-e5-hardware.md`（硬件事实）的续篇：那份文档回答「这块板子上有什么」，
 这份回答「XNU 需要什么、差多少、先做哪一步」。标记沿用【C】已确认 /【I】推断 /【U】未验证。
 

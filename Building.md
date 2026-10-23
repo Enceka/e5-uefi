@@ -13,11 +13,22 @@ cd e5-uefi
 ```
 
 The four submodules are large (mu_basecore alone is several hundred MB), so the
-download dominates the first build. If you forgot `--recursive`:
+download dominates the first build.
+
+`--recursive` also walks into submodules this platform never compiles — most of
+them inside `SecurityPkg/DeviceSecurity/SpdmLib/libspdm`, which vendors mbedtls
+and openssl, and uefi-sheng's `Binaries`. That adds well over a gigabyte. If you
+would rather skip it, clone without `--recursive` and initialise just the four:
 
 ```sh
-git submodule update --init --recursive
+git clone https://github.com/Enceka/e5-uefi
+cd e5-uefi
+git submodule update --init
 ```
+
+Both routes give the same tree for the files the build reads; `build_e5.sh` fills
+in the five mu_basecore submodules it actually needs (next section) if they are
+missing.
 
 ### `Mu_Basecore` needs five more submodules
 

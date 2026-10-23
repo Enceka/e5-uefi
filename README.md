@@ -48,7 +48,7 @@ unmodified; only the SoC and platform layers are new.
 ## Build
 
 ```sh
-git clone --recursive https://github.com/Enceka/e5-uefi
+git clone --recursive https://github.com/Enceka/e5-uefi   # lighter clone: Building.md
 cd e5-uefi
 ./setup_env.sh -p dnf          # apt / dnf / pacman; see Building.md if you have no root
 ./build_e5.sh DEBUG

@@ -45,7 +45,7 @@ Silicium 自带的 SEC、DXE core、BDS、DtPlatformDxe、ArmGicDxe、TimerDxe�
 ## 构建
 
 ```sh
-git clone --recursive https://github.com/Enceka/e5-uefi
+git clone --recursive https://github.com/Enceka/e5-uefi   # 更省流量的克隆方式见 Building.md
 cd e5-uefi
 ./setup_env.sh -p dnf          # apt / dnf / pacman；没有 root 见 Building.md
 ./build_e5.sh DEBUG
